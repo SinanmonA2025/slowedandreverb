@@ -125,43 +125,6 @@
         "query-input": "required name=search_term_string"
       }
     },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How do I make a slowed and reverb song?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Upload your audio file (MP3, WAV, FLAC, OGG), choose the Slowed preset or adjust speed to 0.75×, set reverb mix to around 50%, then click Process Audio. Download the result as a WAV file. The whole process happens in your browser — no upload to any server."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is nightcore music?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Nightcore is a remix style where the song is sped up (usually 1.25–1.30×) and the pitch is raised by several semitones, giving it a fast, high-pitched, energetic feel. Use the Nightcore preset in this tool to create it instantly."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is this audio remixer free?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, Slowed + Reverb Studio is completely free to use. There are no limits, no sign-up required, and all audio processing happens locally in your browser."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What audio formats does this tool support?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The tool supports MP3, WAV, FLAC, OGG, M4A, and any other format your browser's Web Audio API can decode. Files are processed locally — nothing is uploaded to a server."
-          }
-        }
-      ]
-    }
   ]
 }
 </script>
@@ -697,42 +660,6 @@ canvas#visualizer {
 .feature-card h3 { font-size:.88rem;font-weight:700;color:var(--text);margin:0 0 .35rem; }
 .feature-card p  { font-size:.75rem;color:var(--muted);line-height:1.6;margin:0; }
 
-/* FAQ */
-.faq-list { margin:1.2rem 0; }
-
-.faq-item {
-  border:1px solid var(--border);
-  border-radius:var(--radius-sm);
-  margin-bottom:8px;
-  overflow:hidden;
-}
-
-.faq-q {
-  width:100%;background:var(--surf);border:none;
-  padding:.9rem 1rem;
-  display:flex;justify-content:space-between;align-items:center;
-  cursor:pointer;color:var(--text);
-  font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;
-  text-align:left;
-  touch-action:manipulation;
-}
-
-.faq-q:hover { background:var(--surf2); }
-
-.faq-arrow {
-  font-size:.75rem;color:var(--accent);
-  transition:transform .25s;flex-shrink:0;margin-left:8px;
-}
-.faq-item.open .faq-arrow { transform:rotate(180deg); }
-
-.faq-a {
-  display:none;
-  padding:.75rem 1rem 1rem;
-  font-size:.82rem;color:var(--muted);line-height:1.7;
-  background:var(--surf);
-  border-top:1px solid var(--border);
-}
-.faq-item.open .faq-a { display:block; }
 
 /* ════════════════════════════════
    FOOTER
@@ -1032,68 +959,6 @@ footer p {
     <p><strong style="color:var(--accent2)">Step 4:</strong> Click <em>Process Audio</em> and preview the result with the built-in player.</p>
     <p><strong style="color:var(--accent2)">Step 5:</strong> Download your remix as a high-quality WAV file, free.</p>
 
-    <h2 style="margin-top:2rem">Frequently Asked Questions</h2>
-    <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <button class="faq-q" aria-expanded="false">
-          <span itemprop="name">How do I make a slowed and reverb song?</span>
-          <span class="faq-arrow" aria-hidden="true">▼</span>
-        </button>
-        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Upload your audio file, select the <strong>Slowed</strong> preset, then click <em>Process Audio</em>. The tool will slow the track to 75% speed and add heavy reverb. You can then preview and download the WAV file. Everything processes in your browser — nothing is sent to any server.</p>
-        </div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <button class="faq-q" aria-expanded="false">
-          <span itemprop="name">What is nightcore music and how do I make it?</span>
-          <span class="faq-arrow" aria-hidden="true">▼</span>
-        </button>
-        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Nightcore is a remix style where a song is sped up (usually 1.25–1.30×) and pitch-shifted upward. It originated in Norway around 2002 and became hugely popular on YouTube and TikTok. To make nightcore, choose the <strong>Nightcore</strong> preset — it sets speed to 1.25× and pitch to +4 semitones automatically.</p>
-        </div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <button class="faq-q" aria-expanded="false">
-          <span itemprop="name">Is this tool free to use?</span>
-          <span class="faq-arrow" aria-hidden="true">▼</span>
-        </button>
-        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Yes — completely free. No account, no watermark, no file-size limit enforced by a paywall. You can process and download as many songs as you want at no cost.</p>
-        </div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <button class="faq-q" aria-expanded="false">
-          <span itemprop="name">What audio formats are supported?</span>
-          <span class="faq-arrow" aria-hidden="true">▼</span>
-        </button>
-        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">The tool accepts MP3, WAV, FLAC, OGG, M4A, and AAC files — any format your browser can decode. Output is always a high-quality stereo 16-bit WAV file.</p>
-        </div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <button class="faq-q" aria-expanded="false">
-          <span itemprop="name">Does it work on mobile phones?</span>
-          <span class="faq-arrow" aria-hidden="true">▼</span>
-        </button>
-        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Yes. The tool is fully responsive and works on iPhone (Safari), Android (Chrome), and all modern desktop browsers. Because processing happens locally, a song may take a few extra seconds on slower phones — but it will work.</p>
-        </div>
-      </div>
-
-      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <button class="faq-q" aria-expanded="false">
-          <span itemprop="name">What is daycore music?</span>
-          <span class="faq-arrow" aria-hidden="true">▼</span>
-        </button>
-        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Daycore (also called anti-nightcore) is the opposite of nightcore: the song is slowed down and the pitch is shifted down, creating a deep, mellow, almost dreamy version of the original. The <strong>Daycore</strong> preset sets speed to 0.75× and pitch to −4 semitones.</p>
-        </div>
-      </div>
-    </div>
   </article>
 
 </div>
@@ -1444,15 +1309,6 @@ btnDownload.addEventListener('click',()=>{
   const preset=document.querySelector('.preset-btn.active');
   a.download=base+'_'+(preset?preset.dataset.preset:'remix')+'.wav';
   a.click();
-});
-
-// ── FAQ accordion ─────────────────────────────────────────────────────────────
-document.querySelectorAll('.faq-q').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const item=btn.closest('.faq-item');
-    const open=item.classList.toggle('open');
-    btn.setAttribute('aria-expanded',open);
-  });
 });
 
 // ── Idle waveform ─────────────────────────────────────────────────────────────
