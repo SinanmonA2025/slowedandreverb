@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta name="google-site-verification" content="iloLFilcF3kPeXqg4rYxHL6K7jqGcRx0sMiiIfegiTM" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- ═══════════════════════════════════════════════
+     PRIMARY SEO META TAGS
+════════════════════════════════════════════════ -->
+<title>Slowed + Reverb Studio — Free Online Audio Remixer | Nightcore & Daycore Maker</title>
+<meta name="description" content="Free online slowed and reverb maker. Slow down, speed up, add reverb, pitch shift songs in seconds. Make Nightcore, Daycore, Lo-Fi remixes instantly — no upload, 100% in your browser.">
+<meta name="keywords" content="slowed and reverb, slowed reverb maker, nightcore maker, daycore maker, audio pitch shifter, slow down song online, speed up song, reverb effect online, lo-fi music maker, sped up music, free audio editor online">
+<meta name="author" content="Slowed + Reverb Studio">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<link rel="canonical" href="https://slowedandreverb.netlify.app/">
+
+<!-- ═══════════════════════════════════════════════
+     OPEN GRAPH (Facebook, LinkedIn, WhatsApp)
+════════════════════════════════════════════════ -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://slowedandreverb.netlify.app/">
+<meta property="og:title" content="Slowed + Reverb Studio — Free Online Audio Remixer">
+<meta property="og:description" content="Make slowed reverb, nightcore, daycore, and lo-fi remixes free online. No signup, no upload — runs 100% in your browser.">
+<meta property="og:image" content="https://slowedandreverb.netlify.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Slowed + Reverb Studio">
+<meta property="og:locale" content="en_US">
+
+<!-- ═══════════════════════════════════════════════
+     TWITTER CARD
+════════════════════════════════════════════════ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://slowedandreverb.netlify.app/">
+<meta name="twitter:title" content="Slowed + Reverb Studio — Free Online Audio Remixer">
+<meta name="twitter:description" content="Make slowed reverb, nightcore, daycore remixes free online. No signup needed.">
+<meta name="twitter:image" content="https://slowedandreverb.netlify.app/og-image.png">
+
+<!-- ═══════════════════════════════════════════════
+     PWA / APP META
+════════════════════════════════════════════════ -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#7c5cfc">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Reverb Studio">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
+<link rel="icon" href="favicon.ico">
+
+<!-- ═══════════════════════════════════════════════
+     PERFORMANCE
+════════════════════════════════════════════════ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"></noscript>
+
+<!-- ═══════════════════════════════════════════════
+     STRUCTURED DATA — JSON-LD
+════════════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Slowed + Reverb Studio",
+  "url":"https://slowedandreverb.netlify.app/",
+  "applicationCategory":"MultimediaApplication",
+  "operatingSystem":"Web",
+  "description":"Free online slowed and reverb audio remixer for creating nightcore, daycore and lo-fi edits.",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "image":"https://slowedandreverb.netlify.app/og-image.png"
+}
+</script>
+
+<style>
+/* ════════════════════════════════
+   RESET & TOKENS
+════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #08080f;
+  --surf:    #0e0e1a;
+  --surf2:   #14141f;
+  --border:  rgba(120,100,255,.15);
+  --border2: rgba(120,100,255,.32);
+  --accent:  #7c5cfc;
+  --accent2: #c084fc;
+  --accent3: #38bdf8;
+  --text:    #f0eeff;
+  --muted:   rgba(240,238,255,.45);
+  --danger:  #f87171;
+  --success: #34d399;
+  --glow:    rgba(124,92,252,.25);
+  --radius:  16px;
+  --radius-sm: 10px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Syne', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* bg grid */
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(124,92,252,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(124,92,252,.04) 1px,transparent 1px);
+  background-size:48px 48px;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ════════════════════════════════
+   LAYOUT
+════════════════════════════════ */
+.wrap {
+  position:relative;
+  z-index:1;
+  max-width:900px;
+  margin:0 auto;
+  padding:2rem 1.25rem 5rem;
+}
+
+/* ════════════════════════════════
+   HEADER
+════════════════════════════════ */
+header {
+  text-align:center;
+  margin-bottom:2.5rem;
+  animation:fadeUp .55s ease both;
+}
+
+.badge {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:.7rem;
+  font-family:'Space Mono',monospace;
+  color:var(--accent);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  margin-bottom:.9rem;
+}
+
+.badge-dot {
+  width:6px;height:6px;
+  border-radius:50%;
+  background:var(--accent);
+  animation:pulse 2.2s ease-in-out infinite;
+}
+
+h1 {
+  font-size:clamp(2rem,6vw,3.6rem);
+  font-weight:800;
+  line-height:1.06;
+  letter-spacing:-.03em;
+  background:linear-gradient(135deg,#fff 0%,var(--accent2) 48%,var(--accent3) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:.5rem;
+}
+
+.tagline {
+  font-size:.9rem;
+  color:var(--muted);
+  font-family:'Space Mono',monospace;
+  margin-bottom:.8rem;
+}
+
+.trust-pills {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  margin-top:.7rem;
+}
+
+.pill {
+  font-size:.68rem;
+  font-family:'Space Mono',monospace;
+  background:rgba(124,92,252,.1);
+  border:1px solid var(--border2);
+  border-radius:100px;
+  padding:4px 12px;
+  color:var(--accent2);
+}
+
+/* ════════════════════════════════
+   UPLOAD
+════════════════════════════════ */
+.upload-zone {
+  border:1.5px dashed var(--border2);
+  border-radius:var(--radius);
+  padding:2.5rem 1.5rem;
+  text-align:center;
+  cursor:pointer;
+  transition:all .3s ease;
+  background:var(--surf);
+  position:relative;
+  overflow:hidden;
+  margin-bottom:1.5rem;
+  animation:fadeUp .55s .08s ease both;
+  min-height:160px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.upload-zone::after {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse at 50% 110%,var(--glow) 0%,transparent 68%);
+  opacity:0;
+  transition:opacity .3s;
+  pointer-events:none;
+}
+
+.upload-zone:hover::after,
+.upload-zone.drag-over::after { opacity:1; }
+
+.upload-zone:hover,
+.upload-zone.drag-over {
+  border-color:var(--accent);
+  background:var(--surf2);
+  transform:translateY(-2px);
+}
+
+.upload-icon {
+  width:60px;height:60px;
+  margin:0 auto 1rem;
+  border-radius:14px;
+  background:linear-gradient(135deg,rgba(124,92,252,.2),rgba(56,189,248,.1));
+  border:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;
+  flex-shrink:0;
+}
+
+.upload-zone h2 { font-size:1.15rem;font-weight:700;margin-bottom:.35rem; }
+
+.upload-zone p {
+  font-size:.78rem;
+  color:var(--muted);
+  font-family:'Space Mono',monospace;
+  line-height:1.6;
+}
+
+.upload-zone input[type="file"] {
+  position:absolute;inset:0;
+  opacity:0;cursor:pointer;
+  width:100%;height:100%;
+}
+
+/* FILE BAR */
+.file-bar {
+  display:none;
+  align-items:center;
+  gap:10px;
+  background:var(--surf);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  padding:.8rem 1rem;
+  margin-bottom:1.5rem;
+}
+.file-bar.show { display:flex; }
+
+.file-icon {
+  width:34px;height:34px;
+  border-radius:8px;
+  background:rgba(124,92,252,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+}
+
+.file-name {
+  flex:1;font-size:.85rem;font-weight:600;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  min-width:0;
+}
+
+.file-size {
+  font-size:.7rem;color:var(--muted);
+  font-family:'Space Mono',monospace;flex-shrink:0;
+}
+
+.btn-remove {
+  background:none;border:none;
+  color:var(--muted);cursor:pointer;
+  font-size:16px;padding:4px;
+  transition:color .2s;flex-shrink:0;
+  line-height:1;
+}
+.btn-remove:hover { color:var(--danger); }
+
+/* ════════════════════════════════
+   PRESETS
+════════════════════════════════ */
+.section-label {
+  font-size:.68rem;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:var(--muted);
+  font-family:'Space Mono',monospace;
+  margin-bottom:.7rem;
+}
+
+.presets {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+  gap:8px;
+  margin-bottom:1.5rem;
+  animation:fadeUp .55s .13s ease both;
+}
+
+.preset-btn {
+  background:var(--surf);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  padding:.65rem .9rem;
+  cursor:pointer;
+  text-align:left;
+  transition:all .2s ease;
+  color:var(--text);
+  font-family:'Syne',sans-serif;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.preset-btn:hover {
+  border-color:var(--accent);
+  background:var(--surf2);
+  transform:translateY(-1px);
+}
+
+.preset-btn.active {
+  border-color:var(--accent);
+  background:rgba(124,92,252,.13);
+  box-shadow:0 0 0 1px var(--accent);
+}
+
+.preset-name { font-size:.82rem;font-weight:700;margin-bottom:2px; }
+.preset-desc { font-size:.65rem;color:var(--muted);font-family:'Space Mono',monospace; }
+
+/* ════════════════════════════════
+   CONTROLS CARD
+════════════════════════════════ */
+.card {
+  background:var(--surf);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:1.5rem;
+  margin-bottom:1.5rem;
+  animation:fadeUp .55s .18s ease both;
+}
+
+.controls-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.5rem;
+}
+
+@media (max-width:500px) {
+  .controls-grid { grid-template-columns:1fr; gap:1.2rem; }
+}
+
+.ctrl-group { display:flex;flex-direction:column;gap:.5rem; }
+
+.ctrl-label {
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+}
+
+.ctrl-label span:first-child {
+  font-size:.72rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.08em;
+  color:var(--muted);
+}
+
+.ctrl-value {
+  font-family:'Space Mono',monospace;
+  font-size:.85rem;
+  color:var(--accent2);
+  font-weight:700;
+}
+
+input[type="range"] {
+  -webkit-appearance:none;appearance:none;
+  width:100%;height:4px;
+  background:rgba(255,255,255,.08);
+  border-radius:4px;outline:none;cursor:pointer;
+  touch-action:manipulation;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance:none;
+  width:20px;height:20px;
+  border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 10px var(--glow);
+  cursor:pointer;
+  transition:transform .15s,box-shadow .15s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover,
+input[type="range"]:active::-webkit-slider-thumb {
+  transform:scale(1.25);
+  box-shadow:0 0 18px rgba(124,92,252,.55);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width:20px;height:20px;border-radius:50%;
+  background:var(--accent);border:none;cursor:pointer;
+}
+
+/* ════════════════════════════════
+   WAVEFORM
+════════════════════════════════ */
+.vis-wrap { margin:1.2rem 0 0;border-top:1px solid var(--border);padding-top:1.2rem; }
+
+canvas#visualizer {
+  width:100%;height:72px;
+  border-radius:8px;
+  background:rgba(0,0,0,.3);
+  display:block;
+}
+
+/* ════════════════════════════════
+   PLAYBACK
+════════════════════════════════ */
+.playback-card {
+  background:var(--surf);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:1.2rem 1.5rem;
+  margin-bottom:1.5rem;
+  display:none;
+}
+.playback-card.show { display:block; }
+
+.playback-header {
+  font-size:.65rem;
+  text-transform:uppercase;letter-spacing:.12em;
+  color:var(--muted);font-family:'Space Mono',monospace;
+  margin-bottom:.9rem;
+}
+
+.playback-row {
+  display:flex;align-items:center;gap:.9rem;flex-wrap:wrap;
+}
+
+.btn-play {
+  width:50px;height:50px;border-radius:50%;
+  background:var(--accent);border:none;
+  color:#fff;font-size:18px;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s ease;flex-shrink:0;
+  box-shadow:0 0 18px var(--glow);
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn-play:hover { transform:scale(1.08);box-shadow:0 0 28px rgba(124,92,252,.5); }
+
+.time-wrap { flex:1;min-width:100px; }
+.time-display {
+  display:flex;justify-content:space-between;
+  font-family:'Space Mono',monospace;font-size:.65rem;color:var(--muted);
+  margin-top:4px;
+}
+
+/* ════════════════════════════════
+   PROGRESS & STATUS
+════════════════════════════════ */
+.progress-wrap { display:none;margin:.8rem 0; }
+.progress-wrap.show { display:block; }
+
+.progress-label {
+  font-size:.7rem;color:var(--muted);
+  font-family:'Space Mono',monospace;margin-bottom:6px;
+}
+
+.prog-outer {
+  height:5px;
+  background:rgba(255,255,255,.07);
+  border-radius:5px;overflow:hidden;
+}
+
+.prog-inner {
+  height:100%;border-radius:5px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  width:0%;transition:width .3s ease;
+}
+
+.status-msg {
+  text-align:center;font-size:.75rem;
+  font-family:'Space Mono',monospace;
+  color:var(--muted);margin:.4rem 0;min-height:1.2em;
+}
+.status-msg.ok  { color:var(--success); }
+.status-msg.err { color:var(--danger); }
+
+/* ════════════════════════════════
+   ACTION BUTTONS
+════════════════════════════════ */
+.actions {
+  display:flex;gap:10px;flex-wrap:wrap;
+  animation:fadeUp .55s .22s ease both;
+  margin-bottom:3rem;
+}
+
+.btn-action {
+  flex:1;min-width:140px;
+  padding:.88rem 1.2rem;
+  border-radius:var(--radius-sm);border:none;
+  cursor:pointer;
+  font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;
+  letter-spacing:.02em;
+  transition:all .22s ease;
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.btn-process {
+  background:var(--accent);color:#fff;
+  box-shadow:0 4px 18px var(--glow);
+}
+.btn-process:hover:not(:disabled) {
+  background:#6b4df0;
+  transform:translateY(-2px);
+  box-shadow:0 8px 26px rgba(124,92,252,.45);
+}
+.btn-process:disabled { opacity:.4;cursor:not-allowed; }
+
+.btn-dl {
+  background:rgba(52,211,153,.1);
+  color:var(--success);
+  border:1px solid rgba(52,211,153,.28);
+}
+.btn-dl:hover:not(:disabled) {
+  background:rgba(52,211,153,.2);
+  transform:translateY(-2px);
+}
+.btn-dl:disabled { opacity:.3;cursor:not-allowed; }
+
+/* ════════════════════════════════
+   SEO CONTENT SECTIONS
+════════════════════════════════ */
+.seo-section {
+  border-top:1px solid var(--border);
+  padding-top:3rem;
+  margin-top:1rem;
+}
+
+.seo-section h2 {
+  font-size:1.5rem;font-weight:800;
+  letter-spacing:-.02em;
+  margin-bottom:.8rem;
+  background:linear-gradient(120deg,var(--text),var(--accent2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.seo-section h3 {
+  font-size:1rem;font-weight:700;
+  color:var(--accent2);margin:.8rem 0 .35rem;
+}
+
+.seo-section p {
+  font-size:.88rem;color:var(--muted);line-height:1.75;margin-bottom:.8rem;
+}
+
+.features-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:12px;
+  margin:1.5rem 0;
+}
+
+.feature-card {
+  background:var(--surf);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  padding:1rem 1.1rem;
+}
+
+.feature-icon { font-size:1.4rem;margin-bottom:.5rem; }
+.feature-card h3 { font-size:.88rem;font-weight:700;color:var(--text);margin:0 0 .35rem; }
+.feature-card p  { font-size:.75rem;color:var(--muted);line-height:1.6;margin:0; }
+
+
+/* ════════════════════════════════
+   FOOTER
+════════════════════════════════ */
+footer {
+  border-top:1px solid var(--border);
+  padding-top:2rem;
+  margin-top:2rem;
+  text-align:center;
+}
+
+.footer-links {
+  display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;
+  margin-bottom:1rem;
+}
+
+.footer-links a {
+  font-size:.78rem;color:var(--muted);
+  text-decoration:none;font-family:'Space Mono',monospace;
+  transition:color .2s;
+}
+.footer-links a:hover { color:var(--accent2); }
+
+footer p {
+  font-size:.7rem;
+  color:rgba(240,238,255,.2);
+  font-family:'Space Mono',monospace;
+}
+
+/* ════════════════════════════════
+   ANIMATIONS
+════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity:0;transform:translateY(14px); }
+  to   { opacity:1;transform:translateY(0); }
+}
+@keyframes pulse {
+  0%,100% { opacity:1;transform:scale(1); }
+  50% { opacity:.45;transform:scale(.75); }
+}
+@keyframes spin {
+  to { transform:rotate(360deg); }
+}
+
+/* ════════════════════════════════
+   RESPONSIVE
+════════════════════════════════ */
+@media (max-width:480px) {
+  .wrap { padding:1.25rem .9rem 4rem; }
+  .presets { grid-template-columns:repeat(3,1fr); }
+  .preset-desc { display:none; }
+  .card { padding:1.1rem; }
+  .actions { gap:8px; }
+  .btn-action { font-size:.82rem;padding:.8rem 1rem; }
+  .features-grid { grid-template-columns:1fr 1fr; }
+}
+
+@media (max-width:360px) {
+  .presets { grid-template-columns:repeat(2,1fr); }
+  .features-grid { grid-template-columns:1fr; }
+}
+
+/* SKIP NAV */
+.skip-nav {
+  position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;
+}
+.skip-nav:focus {
+  left:1rem;top:1rem;width:auto;height:auto;
+  background:var(--accent);color:#fff;
+  padding:.5rem 1rem;border-radius:8px;z-index:9999;
+}
+</style>
+</head>
+
+<body>
+<a href="#main-tool" class="skip-nav">Skip to main content</a>
+
+<!-- ═══════════════════════ HEADER ════════════════════ -->
+<header role="banner">
+  <div class="wrap" style="padding-bottom:0">
+    <div class="badge" aria-label="Free online audio tool">
+      <span class="badge-dot" aria-hidden="true"></span>
+      Free · No Sign-up · Browser-based
+      <span class="badge-dot" aria-hidden="true"></span>
+    </div>
+    <h1>Slowed + Reverb Studio</h1>
+    <p class="tagline">Make slowed reverb · nightcore · daycore · lo-fi remixes in seconds</p>
+    <div class="trust-pills" aria-label="Key features">
+      <span class="pill">🔒 No Upload</span>
+      <span class="pill">🎵 MP3 / WAV / FLAC</span>
+      <span class="pill">⚡ Instant Preview</span>
+      <span class="pill">⬇ Free Download</span>
+      <span class="pill">📱 Works on Mobile</span>
+    </div>
+  </div>
+</header>
+
+<main id="main-tool" role="main">
+<div class="wrap">
+
+  <!-- Upload -->
+  <section aria-label="Upload audio file">
+    <div class="upload-zone" id="uploadZone" role="button" tabindex="0" aria-label="Drop or click to upload audio file">
+      <input type="file" id="fileInput" accept="audio/*" aria-label="Choose audio file">
+      <div class="upload-icon" aria-hidden="true">🎵</div>
+      <h2>Drop your song here</h2>
+      <p>MP3 · WAV · FLAC · OGG · M4A<br>Up to 100 MB · Processed locally</p>
+    </div>
+  </section>
+
+  <!-- File bar -->
+  <div class="file-bar" id="fileBar" role="status" aria-live="polite">
+    <div class="file-icon" aria-hidden="true">🎧</div>
+    <span class="file-name" id="fileNameLabel">—</span>
+    <span class="file-size" id="fileSizeLabel">—</span>
+    <button class="btn-remove" id="btnRemove" aria-label="Remove file">✕</button>
+  </div>
+
+  <!-- Presets -->
+  <section aria-label="Effect presets">
+    <div class="section-label">Choose a preset</div>
+    <div class="presets" id="presets" role="group" aria-label="Audio effect presets">
+      <button class="preset-btn" data-preset="slowed"    aria-pressed="true">
+        <div class="preset-name">😴 Slowed</div>
+        <div class="preset-desc">0.75× · heavy reverb</div>
+      </button>
+      <button class="preset-btn" data-preset="nightcore" aria-pressed="false">
+        <div class="preset-name">⚡ Nightcore</div>
+        <div class="preset-desc">1.25× · high pitch</div>
+      </button>
+      <button class="preset-btn" data-preset="daycore"   aria-pressed="false">
+        <div class="preset-name">☀️ Daycore</div>
+        <div class="preset-desc">0.75× · low pitch</div>
+      </button>
+      <button class="preset-btn" data-preset="spedup"    aria-pressed="false">
+        <div class="preset-name">🚀 Sped Up</div>
+        <div class="preset-desc">1.30× · dry</div>
+      </button>
+      <button class="preset-btn" data-preset="lofi"      aria-pressed="false">
+        <div class="preset-name">🌙 Lo-Fi</div>
+        <div class="preset-desc">0.85× · soft reverb</div>
+      </button>
+      <button class="preset-btn" data-preset="custom"    aria-pressed="false">
+        <div class="preset-name">🎛️ Custom</div>
+        <div class="preset-desc">manual controls</div>
+      </button>
+    </div>
+  </section>
+
+  <!-- Controls -->
+  <section class="card" aria-label="Audio effect controls">
+    <div class="section-label" style="margin-bottom:1rem">Fine-tune your sound</div>
+    <div class="controls-grid">
+
+      <div class="ctrl-group">
+        <div class="ctrl-label">
+          <span>Speed</span>
+          <span class="ctrl-value" id="speedVal" aria-live="polite">0.75×</span>
+        </div>
+        <input type="range" id="speedSlider" min="0.5" max="2.0" step="0.01" value="0.75"
+               aria-label="Playback speed" aria-valuemin="0.5" aria-valuemax="2.0">
+      </div>
+
+      <div class="ctrl-group">
+        <div class="ctrl-label">
+          <span>Pitch Shift</span>
+          <span class="ctrl-value" id="pitchVal" aria-live="polite">0 st</span>
+        </div>
+        <input type="range" id="pitchSlider" min="-12" max="12" step="1" value="0"
+               aria-label="Pitch shift in semitones">
+      </div>
+
+      <div class="ctrl-group">
+        <div class="ctrl-label">
+          <span>Reverb Mix</span>
+          <span class="ctrl-value" id="reverbVal" aria-live="polite">45%</span>
+        </div>
+        <input type="range" id="reverbSlider" min="0" max="100" step="1" value="45"
+               aria-label="Reverb wet/dry mix percentage">
+      </div>
+
+      <div class="ctrl-group">
+        <div class="ctrl-label">
+          <span>Reverb Size</span>
+          <span class="ctrl-value" id="sizeVal" aria-live="polite">2.5 s</span>
+        </div>
+        <input type="range" id="sizeSlider" min="0.5" max="6" step="0.1" value="2.5"
+               aria-label="Reverb room size in seconds">
+      </div>
+
+      <div class="ctrl-group">
+        <div class="ctrl-label">
+          <span>Reverb Damp</span>
+          <span class="ctrl-value" id="dampVal" aria-live="polite">40%</span>
+        </div>
+        <input type="range" id="dampSlider" min="0" max="100" step="1" value="40"
+               aria-label="Reverb high-frequency dampening">
+      </div>
+
+      <div class="ctrl-group">
+        <div class="ctrl-label">
+          <span>Bass Boost</span>
+          <span class="ctrl-value" id="bassVal" aria-live="polite">+0 dB</span>
+        </div>
+        <input type="range" id="bassSlider" min="-6" max="12" step="1" value="0"
+               aria-label="Bass frequency boost in decibels">
+      </div>
+    </div>
+
+    <!-- Waveform -->
+    <div class="vis-wrap" aria-hidden="true">
+      <div class="section-label">Waveform</div>
+      <canvas id="visualizer" width="860" height="72" role="img" aria-label="Audio waveform visualization"></canvas>
+    </div>
+  </section>
+
+  <!-- Preview player -->
+  <section class="playback-card" id="playbackCard" aria-label="Preview processed audio">
+    <div class="playback-header">▶ Preview — Processed Audio</div>
+    <div class="playback-row">
+      <button class="btn-play" id="btnPlay" aria-label="Play or pause preview">▶</button>
+      <div class="time-wrap">
+        <input type="range" id="seekBar" min="0" max="100" step="0.1" value="0"
+               aria-label="Seek position in processed audio">
+        <div class="time-display" aria-live="polite">
+          <span id="timeCurrent">0:00</span>
+          <span id="timeDuration">0:00</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Progress -->
+  <div class="progress-wrap" id="progressWrap" role="progressbar" aria-live="polite" aria-label="Processing progress">
+    <div class="progress-label" id="progressLabel">Processing…</div>
+    <div class="prog-outer">
+      <div class="prog-inner" id="progressBar"></div>
+    </div>
+  </div>
+  <div class="status-msg" id="statusMsg" role="status" aria-live="polite"></div>
+
+  <!-- Actions -->
+  <div class="actions">
+    <button class="btn-action btn-process" id="btnProcess" disabled aria-label="Process audio with selected effects">
+      ✨ Process Audio
+    </button>
+    <button class="btn-action btn-dl" id="btnDownload" disabled aria-label="Download processed audio as WAV file">
+      ⬇ Download WAV
+    </button>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SEO CONTENT — FEATURES + FAQ
+  ═══════════════════════════════════════ -->
+  <article class="seo-section">
+    <h2>Free Online Slowed + Reverb Maker</h2>
+    <p>Slowed + Reverb Studio is the fastest, easiest way to create slowed reverb songs, nightcore tracks, daycore remixes, and lo-fi edits — right in your web browser. No account, no software download, and no limits. Just upload your audio and hit process.</p>
+
+    <div class="features-grid" role="list">
+      <div class="feature-card" role="listitem">
+        <div class="feature-icon">😴</div>
+        <h3>Slowed &amp; Reverb</h3>
+        <p>Slow down any song and coat it in dreamy reverb for the classic TikTok slowed aesthetic.</p>
+      </div>
+      <div class="feature-card" role="listitem">
+        <div class="feature-icon">⚡</div>
+        <h3>Nightcore Maker</h3>
+        <p>Speed up tracks and raise the pitch to create high-energy nightcore remixes in one click.</p>
+      </div>
+      <div class="feature-card" role="listitem">
+        <div class="feature-icon">☀️</div>
+        <h3>Daycore / Anti-Nightcore</h3>
+        <p>Slow down with a lowered pitch for the chill, deep daycore sound popular on YouTube.</p>
+      </div>
+      <div class="feature-card" role="listitem">
+        <div class="feature-icon">🌙</div>
+        <h3>Lo-Fi Converter</h3>
+        <p>Apply subtle speed reduction, soft reverb, and bass boost to make any song sound lo-fi.</p>
+      </div>
+      <div class="feature-card" role="listitem">
+        <div class="feature-icon">🎛️</div>
+        <h3>Full Manual Control</h3>
+        <p>Dial in speed, pitch, reverb mix, reverb size, dampening, and bass boost individually.</p>
+      </div>
+      <div class="feature-card" role="listitem">
+        <div class="feature-icon">🔒</div>
+        <h3>100% Private</h3>
+        <p>Your audio never leaves your device. All processing uses the Web Audio API — fully offline capable.</p>
+      </div>
+    </div>
+
+    <h2 style="margin-top:2rem">How to Make Slowed + Reverb Songs</h2>
+    <p>Making a slowed and reverb song is simple with this tool:</p>
+    <p><strong style="color:var(--accent2)">Step 1:</strong> Click the upload area or drag and drop your MP3, WAV, FLAC, or OGG file.</p>
+    <p><strong style="color:var(--accent2)">Step 2:</strong> Select the <em>Slowed</em> preset (or choose Nightcore, Daycore, Lo-Fi, or Sped Up).</p>
+    <p><strong style="color:var(--accent2)">Step 3:</strong> Fine-tune speed, pitch, reverb mix, reverb size, and bass boost with the sliders.</p>
+    <p><strong style="color:var(--accent2)">Step 4:</strong> Click <em>Process Audio</em> and preview the result with the built-in player.</p>
+    <p><strong style="color:var(--accent2)">Step 5:</strong> Download your remix as a high-quality WAV file, free.</p>
+
+  </article>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+  <div class="wrap" style="padding-top:0">
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="/">Home</a>
+      <a href="#main-tool">Make Slowed Reverb</a>
+      <a href="#main-tool">Nightcore Maker</a>
+      <a href="#main-tool">Daycore Maker</a>
+      <a href="#main-tool">Audio Pitch Shifter</a>
+    </nav>
+    <p>© 2025 Slowed + Reverb Studio · All audio processing happens locally in your browser · No files are uploaded</p>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════
+     SERVICE WORKER REGISTRATION
+═══════════════════════════════════════ -->
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
+</script>
+
+<!-- ══════════════════════════════════════
+     MAIN APP SCRIPT
+═══════════════════════════════════════ -->
+<script>
+'use strict';
+
+// ── Presets ──────────────────────────────────────────────────────────────────
+const PRESETS = {
+  slowed:    { speed:0.75, pitch:-2, reverb:55, size:3.5, damp:35, bass:3 },
+  nightcore: { speed:1.25, pitch:4,  reverb:15, size:1.2, damp:60, bass:0 },
+  daycore:   { speed:0.75, pitch:-4, reverb:30, size:2.0, damp:50, bass:2 },
+  spedup:    { speed:1.30, pitch:0,  reverb:5,  size:0.8, damp:80, bass:0 },
+  lofi:      { speed:0.85, pitch:-1, reverb:38, size:2.0, damp:45, bass:5 },
+  custom:    null
+};
+
+// ── State ────────────────────────────────────────────────────────────────────
+let audioFile=null, audioBuffer=null, processedBuffer=null;
+let audioCtx=null, previewSource=null;
+let previewStartedAt=0, previewPausedAt=0;
+let isPlaying=false, animFrame=null, downloadUrl=null;
+
+// ── DOM refs ─────────────────────────────────────────────────────────────────
+const $  = id => document.getElementById(id);
+const uploadZone   = $('uploadZone');
+const fileInput    = $('fileInput');
+const fileBar      = $('fileBar');
+const fileNameLbl  = $('fileNameLabel');
+const fileSizeLbl  = $('fileSizeLabel');
+const btnRemove    = $('btnRemove');
+const btnProcess   = $('btnProcess');
+const btnDownload  = $('btnDownload');
+const btnPlay      = $('btnPlay');
+const playbackCard = $('playbackCard');
+const seekBar      = $('seekBar');
+const timeCurrent  = $('timeCurrent');
+const timeDuration = $('timeDuration');
+const progressWrap = $('progressWrap');
+const progressBar  = $('progressBar');
+const progressLbl  = $('progressLabel');
+const statusMsg    = $('statusMsg');
+const canvas       = $('visualizer');
+const vctx         = canvas.getContext('2d');
+
+const sliders = { speed:$('speedSlider'), pitch:$('pitchSlider'), reverb:$('reverbSlider'), size:$('sizeSlider'), damp:$('dampSlider'), bass:$('bassSlider') };
+const vals    = { speed:$('speedVal'),    pitch:$('pitchVal'),    reverb:$('reverbVal'),    size:$('sizeVal'),    damp:$('dampVal'),    bass:$('bassVal') };
+
+// ── Display helpers ──────────────────────────────────────────────────────────
+const fmt = {
+  speed:  v => (+v).toFixed(2)+'×',
+  pitch:  v => (v>=0?'+':'')+v+' st',
+  reverb: v => Math.round(v)+'%',
+  size:   v => (+v).toFixed(1)+' s',
+  damp:   v => Math.round(v)+'%',
+  bass:   v => (v>=0?'+':'')+v+' dB'
+};
+
+function updDisp(k) { vals[k].textContent = fmt[k](sliders[k].value); }
+Object.keys(sliders).forEach(k => { updDisp(k); sliders[k].addEventListener('input',()=>{ updDisp(k); clearPreset(); resetOut(); }); });
+
+// ── Preset logic ─────────────────────────────────────────────────────────────
+function applyPreset(key) {
+  document.querySelectorAll('.preset-btn').forEach(b=>{
+    const on = b.dataset.preset===key;
+    b.classList.toggle('active',on);
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+  if (key!=='custom' && PRESETS[key]) {
+    const p = PRESETS[key];
+    Object.keys(p).forEach(k=>{ sliders[k].value=p[k]; updDisp(k); });
+    resetOut();
+  }
+}
+
+function clearPreset() {
+  document.querySelectorAll('.preset-btn').forEach(b=>{ b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
+  document.querySelector('[data-preset="custom"]').classList.add('active');
+  document.querySelector('[data-preset="custom"]').setAttribute('aria-pressed','true');
+}
+
+document.querySelectorAll('.preset-btn').forEach(b => b.addEventListener('click',()=>applyPreset(b.dataset.preset)));
+applyPreset('slowed');
+
+// ── File loading ─────────────────────────────────────────────────────────────
+function fmtBytes(n) { return n<1048576 ? (n/1024).toFixed(1)+' KB' : (n/1048576).toFixed(1)+' MB'; }
+function fmtTime(s)  { const m=Math.floor(s/60),ss=Math.floor(s%60); return m+':'+(ss<10?'0':'')+ss; }
+
+async function loadFile(file) {
+  audioFile=file; audioBuffer=null;
+  fileNameLbl.textContent=file.name;
+  fileSizeLbl.textContent=fmtBytes(file.size);
+  uploadZone.style.display='none';
+  fileBar.classList.add('show');
+  setStatus('','');
+  resetOut();
+  try {
+    if (!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+    const ab = await file.arrayBuffer();
+    audioBuffer = await audioCtx.decodeAudioData(ab);
+    btnProcess.disabled=false;
+    setStatus('✓ Loaded — '+audioBuffer.duration.toFixed(1)+'s · '+audioBuffer.sampleRate+' Hz','ok');
+    drawWave(audioBuffer);
+  } catch(e) { setStatus('Error loading audio: '+e.message,'err'); }
+}
+
+fileInput.addEventListener('change', e=>{ if(e.target.files[0]) loadFile(e.target.files[0]); });
+uploadZone.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' ') fileInput.click(); });
+uploadZone.addEventListener('dragover', e=>{ e.preventDefault(); uploadZone.classList.add('drag-over'); });
+uploadZone.addEventListener('dragleave', ()=>uploadZone.classList.remove('drag-over'));
+uploadZone.addEventListener('drop', e=>{
+  e.preventDefault(); uploadZone.classList.remove('drag-over');
+  const f=e.dataTransfer.files[0];
+  if(f && (f.type.startsWith('audio/')||/\.(mp3|wav|flac|ogg|m4a|aac)$/i.test(f.name))) loadFile(f);
+  else setStatus('Please drop an audio file','err');
+});
+
+btnRemove.addEventListener('click', ()=>{
+  audioFile=audioBuffer=processedBuffer=null;
+  fileInput.value=''; uploadZone.style.display='';
+  fileBar.classList.remove('show'); resetOut(); clearCanvas();
+  setStatus('',''); btnProcess.disabled=true;
+});
+
+// ── Waveform ─────────────────────────────────────────────────────────────────
+function drawWave(buf) {
+  const W=canvas.width, H=canvas.height, data=buf.getChannelData(0), step=Math.ceil(data.length/W);
+  vctx.clearRect(0,0,W,H);
+  vctx.beginPath();
+  for (let x=0;x<W;x++) {
+    let mn=1,mx=-1;
+    for (let j=0;j<step;j++) { const d=data[x*step+j]||0; if(d<mn)mn=d; if(d>mx)mx=d; }
+    const y1=(1+mn)/2*H, y2=(1+mx)/2*H;
+    if(x===0) vctx.moveTo(x,y1);
+    vctx.lineTo(x,y1); vctx.lineTo(x,y2);
+  }
+  const g=vctx.createLinearGradient(0,0,W,0);
+  g.addColorStop(0,'#7c5cfc'); g.addColorStop(.5,'#c084fc'); g.addColorStop(1,'#38bdf8');
+  vctx.strokeStyle=g; vctx.lineWidth=1; vctx.stroke();
+}
+
+function clearCanvas() { vctx.clearRect(0,0,canvas.width,canvas.height); }
+
+// ── Impulse response ─────────────────────────────────────────────────────────
+function makeIR(ctx, dur, decay, damp) {
+  const sr=ctx.sampleRate, len=Math.round(sr*dur), ir=ctx.createBuffer(2,len,sr);
+  for (let ch=0;ch<2;ch++) {
+    const d=ir.getChannelData(ch);
+    for (let i=0;i<len;i++) {
+      const env=Math.pow(1-i/len,decay);
+      const hi=damp>0?Math.exp(-i/(sr*(1-damp*0.009))):1;
+      d[i]=(Math.random()*2-1)*env*hi;
+    }
+  }
+  return ir;
+}
+
+// ── Process ──────────────────────────────────────────────────────────────────
+async function processAudio() {
+  if (!audioBuffer) return;
+  stopPreview(); btnProcess.disabled=true; btnDownload.disabled=true;
+  playbackCard.classList.remove('show'); setStatus('','');
+
+  const speed   = parseFloat(sliders.speed.value);
+  const pitchSt = parseFloat(sliders.pitch.value);
+  const rvbMix  = parseFloat(sliders.reverb.value)/100;
+  const irDur   = parseFloat(sliders.size.value);
+  const dampPct = parseFloat(sliders.damp.value);
+  const bassDb  = parseFloat(sliders.bass.value);
+  const outDur  = audioBuffer.duration/speed;
+  const sr      = audioBuffer.sampleRate;
+  const nch     = audioBuffer.numberOfChannels;
+
+  try {
+    setProgress(5,'Initializing…');
+
+    // Pass 1 — time-stretch + pitch
+    const samples1 = Math.ceil(outDur*sr);
+    const ctx1 = new OfflineAudioContext(nch,samples1,sr);
+    const src1 = ctx1.createBufferSource();
+    src1.buffer = audioBuffer;
+    src1.playbackRate.value = speed;
+    src1.detune.value = -1200*Math.log2(speed) + pitchSt*100;
+    src1.connect(ctx1.destination); src1.start(0);
+    setProgress(20,'Stretching time…');
+    const stretched = await ctx1.startRendering();
+
+    setProgress(42,'Building reverb…');
+
+    // Pass 2 — reverb + EQ
+    const ctx2 = new OfflineAudioContext(nch,samples1,sr);
+    const src2 = ctx2.createBufferSource(); src2.buffer=stretched;
+
+    const bassEQ = ctx2.createBiquadFilter();
+    bassEQ.type='lowshelf'; bassEQ.frequency.value=200; bassEQ.gain.value=bassDb;
+
+    const conv = ctx2.createConvolver();
+    conv.buffer = makeIR(ctx2,irDur,3+dampPct*0.02,dampPct);
+
+    const dryG = ctx2.createGain(); dryG.gain.value = 1-rvbMix*0.6;
+    const wetG = ctx2.createGain(); wetG.gain.value = rvbMix;
+    const mG   = ctx2.createGain(); mG.gain.value   = 0.86;
+
+    src2.connect(bassEQ);
+    bassEQ.connect(dryG); bassEQ.connect(conv);
+    conv.connect(wetG);
+    dryG.connect(mG); wetG.connect(mG);
+    mG.connect(ctx2.destination);
+    src2.start(0);
+
+    setProgress(68,'Applying effects…');
+    const rendered = await ctx2.startRendering();
+
+    setProgress(88,'Encoding WAV…');
+    processedBuffer = rendered;
+
+    const blob = bufToWav(rendered);
+    if (downloadUrl) URL.revokeObjectURL(downloadUrl);
+    downloadUrl = URL.createObjectURL(blob);
+
+    setProgress(100,'Done!');
+    setTimeout(()=>setProgress(null),700);
+
+    btnDownload.disabled=false; btnProcess.disabled=false;
+    playbackCard.classList.add('show');
+    timeDuration.textContent=fmtTime(rendered.duration);
+    seekBar.max=rendered.duration;
+    drawWave(rendered);
+    setStatus('✓ Done! '+rendered.duration.toFixed(1)+'s — preview below or download','ok');
+  } catch(e) {
+    setProgress(null); btnProcess.disabled=false;
+    setStatus('Error: '+e.message,'err'); console.error(e);
+  }
+}
+
+// ── WAV encoder ───────────────────────────────────────────────────────────────
+function bufToWav(buf) {
+  const nc=buf.numberOfChannels, sr=buf.sampleRate, len=buf.length;
+  const ab=new ArrayBuffer(44+len*nc*2), v=new DataView(ab);
+  const ws=(o,s)=>{ for(let i=0;i<s.length;i++) v.setUint8(o+i,s.charCodeAt(i)); };
+  ws(0,'RIFF'); v.setUint32(4,36+len*nc*2,true); ws(8,'WAVE');
+  ws(12,'fmt '); v.setUint32(16,16,true); v.setUint16(20,1,true);
+  v.setUint16(22,nc,true); v.setUint32(24,sr,true);
+  v.setUint32(28,sr*nc*2,true); v.setUint16(32,nc*2,true);
+  v.setUint16(34,16,true); ws(36,'data'); v.setUint32(40,len*nc*2,true);
+  let off=44;
+  for(let i=0;i<len;i++) for(let c=0;c<nc;c++) {
+    let s=Math.max(-1,Math.min(1,buf.getChannelData(c)[i]));
+    v.setInt16(off,s<0?s*0x8000:s*0x7FFF,true); off+=2;
+  }
+  return new Blob([ab],{type:'audio/wav'});
+}
+
+// ── Playback ──────────────────────────────────────────────────────────────────
+function startPreview(off) {
+  if(!processedBuffer||!audioCtx) return;
+  if(audioCtx.state==='suspended') audioCtx.resume();
+  stopPreview(false);
+  previewSource=audioCtx.createBufferSource();
+  previewSource.buffer=processedBuffer;
+  const b=audioCtx.createBiquadFilter();
+  b.type='lowshelf'; b.frequency.value=200; b.gain.value=parseFloat(sliders.bass.value);
+  previewSource.connect(b); b.connect(audioCtx.destination);
+  previewSource.start(0,off||0);
+  previewStartedAt=audioCtx.currentTime-(off||0);
+  isPlaying=true; btnPlay.textContent='⏸'; btnPlay.setAttribute('aria-label','Pause preview');
+  loopSeek();
+  previewSource.onended=()=>{ if(isPlaying){ isPlaying=false; btnPlay.textContent='▶'; btnPlay.setAttribute('aria-label','Play preview'); previewPausedAt=0; seekBar.value=0; timeCurrent.textContent='0:00'; cancelAnimationFrame(animFrame); } };
+}
+
+function stopPreview(rst=true) {
+  cancelAnimationFrame(animFrame);
+  if(previewSource) { try{previewSource.stop();}catch(e){} previewSource=null; }
+  if(rst) previewPausedAt=0;
+  isPlaying=false; btnPlay.textContent='▶'; btnPlay.setAttribute('aria-label','Play preview');
+}
+
+function loopSeek() {
+  if(!isPlaying) return;
+  const pos=Math.min(audioCtx.currentTime-previewStartedAt, processedBuffer.duration);
+  seekBar.value=pos; timeCurrent.textContent=fmtTime(pos);
+  animFrame=requestAnimationFrame(loopSeek);
+}
+
+btnPlay.addEventListener('click',()=>{
+  if(!processedBuffer) return;
+  if(isPlaying) { previewPausedAt=audioCtx.currentTime-previewStartedAt; stopPreview(false); }
+  else startPreview(previewPausedAt);
+});
+
+seekBar.addEventListener('input',()=>{
+  const t=parseFloat(seekBar.value); timeCurrent.textContent=fmtTime(t); previewPausedAt=t;
+  if(isPlaying) startPreview(t);
+});
+
+// ── UI helpers ────────────────────────────────────────────────────────────────
+function resetOut() {
+  stopPreview(); processedBuffer=null; downloadUrl=null;
+  btnDownload.disabled=true; playbackCard.classList.remove('show');
+  seekBar.value=0; timeCurrent.textContent='0:00'; timeDuration.textContent='0:00';
+}
+
+function setStatus(msg,type) {
+  statusMsg.textContent=msg;
+  statusMsg.className='status-msg'+(type?' '+type:'');
+}
+
+function setProgress(pct,lbl) {
+  if(pct===null) { progressWrap.classList.remove('show'); return; }
+  progressWrap.classList.add('show');
+  progressBar.style.width=pct+'%';
+  if(lbl) progressLbl.textContent=lbl;
+}
+
+btnProcess.addEventListener('click', processAudio);
+btnDownload.addEventListener('click',()=>{
+  if(!downloadUrl) return;
+  const a=document.createElement('a'); a.href=downloadUrl;
+  const base=(audioFile&&audioFile.name.includes('.'))?audioFile.name.substring(0,audioFile.name.lastIndexOf('.')):'audio';
+  const preset=document.querySelector('.preset-btn.active');
+  a.download=base+'_'+(preset?preset.dataset.preset:'remix')+'.wav';
+  a.click();
+});
+
+// ── Idle waveform ─────────────────────────────────────────────────────────────
+(function idle() {
+  let t=0;
+  function draw() {
+    if(audioBuffer) return;
+    const W=canvas.width,H=canvas.height;
+    vctx.clearRect(0,0,W,H); vctx.beginPath();
+    for(let x=0;x<W;x++){
+      const y=H/2+Math.sin(x/32+t)*7*Math.sin(x/85+t*.3)+Math.cos(x/16+t*1.3)*3.5;
+      x===0?vctx.moveTo(x,y):vctx.lineTo(x,y);
+    }
+    const g=vctx.createLinearGradient(0,0,W,0);
+    g.addColorStop(0,'rgba(124,92,252,.28)'); g.addColorStop(.5,'rgba(192,132,252,.28)'); g.addColorStop(1,'rgba(56,189,248,.28)');
+    vctx.strokeStyle=g; vctx.lineWidth=1.5; vctx.stroke();
+    t+=.016; requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+</body>
+</html>
