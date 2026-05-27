@@ -14,9 +14,8 @@
 <meta name="keywords" content="slowed and reverb, slowed reverb maker, nightcore maker, daycore maker, audio pitch shifter, slow down song online, speed up song, reverb effect online, lo-fi music maker, sped up music, free audio editor online">
 <meta name="author" content="Slowed + Reverb Studio">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-<meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
 <link rel="canonical" href="https://slowedandreverb.netlify.app/">
-<link rel="sitemap" type="application/xml" href="https://slowedandreverb.netlify.app/sitemap.xml">
 
 <!-- ═══════════════════════════════════════════════
      OPEN GRAPH (Facebook, LinkedIn, WhatsApp)
@@ -25,7 +24,7 @@
 <meta property="og:url" content="https://slowedandreverb.netlify.app/">
 <meta property="og:title" content="Slowed + Reverb Studio — Free Online Audio Remixer">
 <meta property="og:description" content="Make slowed reverb, nightcore, daycore, and lo-fi remixes free online. No signup, no upload — runs 100% in your browser.">
-<meta property="og:image" content="https://slowedandreverb.netlify.app/og-image.png">
+<meta property="og:image" content="https://slowedreverb.studio/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="Slowed + Reverb Studio">
@@ -38,7 +37,7 @@
 <meta name="twitter:url" content="https://slowedandreverb.netlify.app/">
 <meta name="twitter:title" content="Slowed + Reverb Studio — Free Online Audio Remixer">
 <meta name="twitter:description" content="Make slowed reverb, nightcore, daycore remixes free online. No signup needed.">
-<meta name="twitter:image" content="https://slowedandreverb.netlify.app/og-image.png">
+<meta name="twitter:image" content="https://slowedreverb.studio/og-image.png">
 
 <!-- ═══════════════════════════════════════════════
      PWA / APP META
@@ -66,15 +65,67 @@
 ════════════════════════════════════════════════ -->
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"WebApplication",
-  "name":"Slowed + Reverb Studio",
-  "url":"https://slowedandreverb.netlify.app/",
-  "applicationCategory":"MultimediaApplication",
-  "operatingSystem":"Web",
-  "description":"Free online slowed and reverb audio remixer.",
-  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
-  "image":"https://slowedandreverb.netlify.app/og-image.png"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://slowedreverb.studio/#app",
+      "name": "Slowed + Reverb Studio",
+      "url": "https://slowedreverb.studio/",
+      "description": "Free online tool to make slowed and reverb, nightcore, daycore, and lo-fi audio remixes. Upload any MP3, WAV, or audio file and apply speed, pitch, and reverb effects instantly in your browser.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Any (Web Browser)",
+      "browserRequirements": "Requires Web Audio API support (Chrome, Firefox, Safari, Edge)",
+      "offers": {
+        "@type": "Offer",
+        "price": 0,
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Slow down songs online",
+        "Speed up songs online",
+        "Add reverb effect to music",
+        "Nightcore audio maker",
+        "Daycore audio maker",
+        "Pitch shift audio",
+        "Bass boost music",
+        "Download processed audio as WAV",
+        "No file upload required — 100% browser-based"
+      ],
+      "screenshot": "https://slowedreverb.studio/og-image.png",
+      "creator": {
+        "@type": "Organization",
+        "name": "Slowed + Reverb Studio",
+        "url": "https://slowedreverb.studio/"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://slowedreverb.studio/#webpage",
+      "url": "https://slowedreverb.studio/",
+      "name": "Slowed + Reverb Studio — Free Online Audio Remixer",
+      "description": "Make slowed reverb, nightcore, daycore, and lo-fi remixes free online.",
+      "isPartOf": { "@id": "https://slowedreverb.studio/#website" },
+      "about": { "@id": "https://slowedreverb.studio/#app" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://slowedreverb.studio/" }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://slowedreverb.studio/#website",
+      "url": "https://slowedreverb.studio/",
+      "name": "Slowed + Reverb Studio",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://slowedreverb.studio/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
 }
 </script>
 
